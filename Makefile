@@ -20,5 +20,6 @@ push:
 	docker tag $(IMAGE_NAME):$(TAG) $(DOCKER_ID)/$(IMAGE_NAME):latest
 	docker push $(DOCKER_ID)/$(IMAGE_NAME):latest
 
+.PHONY: run
 run:
 	docker run --rm -it --name $(IMAGE_NAME) --env-file $(ENV_FILE) -p 5000:5000 $(IMAGE_NAME):$(TAG)
