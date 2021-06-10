@@ -1,0 +1,12 @@
+.env
+.env.dev
+env
+__pycache__/
+.vscode/
+tests/
+.DS_Store
+.git/
+.gitignore
+.dockerignore
+poetry.lock
+pyproject.toml
