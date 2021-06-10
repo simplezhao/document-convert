@@ -33,7 +33,8 @@ def convert_to_pdf(file):
     subprocess.check_call(["unoconv", "-f", "pdf", file])
 
 
-def convert_to_x(file, convert_type="pdf"):
+def convert_to_any(file, convert_type="pdf"):
+    logger.info(f"file name: {file}, convert type to: {convert_type}")
     subprocess.check_call(["unoconv", "-f", convert_type, file])
     return os.path.splitext(file)[0] + "." + convert_type
 
@@ -61,7 +62,7 @@ def convert():
         with TemporaryDirectory() as temp_dir:
             secure_temp_file = temp_dir + "/" + secure_filename(filename)
             convert_file.save(secure_temp_file)
-            converted_file = convert_to_x(secure_temp_file, convert_type=convert_type)
+            converted_file = convert_to_any(secure_temp_file, convert_type=convert_type)
             # logger.info(converted_file)
             # logger.info(os.path.split(converted_file)[1])
             return send_from_directory(
