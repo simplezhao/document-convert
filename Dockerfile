@@ -1,4 +1,4 @@
-FROM document-convert:base
+FROM simplezhao/document-convert:base
 RUN mkdir /root/convert
 
 WORKDIR /root/convert
